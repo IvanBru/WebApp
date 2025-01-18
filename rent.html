@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/new.css">
+    <title>MyWebSite</title>
+    
+  </head>
+  <body class="bg-light">
+      <header class="header">
+    <nav class="navbar navbar-expand-lg  navbar-dark" style="background-color: #151414" id="nav" >
+      <div class="container-fluid">
+        <a href="index.html" class="navbar-brand logo"><img src="img/logo2.png" width="20%" height="20%">ForeyBus</a>
+        <button class="navbar-toggler"  type="button" data-toggle="collapse" data-target="#navMenu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMenu">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item ">
+              <a href="index.html" class="nav-link ">Главная</a>
+            </li>
+            <li class="nav-item">
+              <a href="news.php" class="nav-link">Новости</a>
+            </li>
+            <li class="nav-item ">
+              <a href="ticket.html" class="nav-link">Билеты</a>
+            </li>
+            <li class="nav-item active">
+              <a href="rent.html" class="nav-link">Аренда</a>
+            </li>
+            <li class="nav-item">
+              <a href="aboutUs.html" class="nav-link">О нас</a>
+            </li>
+            <li class="nav-item ">
+              <a href="contact.html" class="nav-link">Контакты</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+    <main class="main container-fluid " id="main">
+      <hr>
+    <div class="rent">
+      <h1>Услуга аренды автобуса для пассажирских перевозок из города Харьков.</h1>
+      <button type='button' class='btn btn-dark buttonOrder'data-toggle='modal' data-target='#Modal' style="width:30%;" > Оставить запрос</button>
+      </div>
+      <hr>
+
+            <div class="d-flex justify-content-center">  </div>
+            <div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header border-0 mb-2">
+                            <h4 class="modal-title" id="ModalLabel" style="color:#151414;"><b>ФОРМА ДЛЯ БРОНИРОВАНИЯ</b></h4>
+                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"> 
+                              <span aria-hidden="true">&times;</span>
+                               </button>
+                        </div>
+                        <form id="rent" action="rent.php" method="post" style="color:black;">
+                        Ф.И.О
+                        <input type="text" form="rent" class="border-0 mb-5 formRent" name="name" maxlength="50" placeholder="Олегов Олег Олегович"  autofocus />
+
+                        Номер телефона
+                       <input type="text" onkeypress='validate(event)' form="rent" name="phoneNum" maxlength="9" class="border-0 mb-5 formRent" placeholder="455455645" autofocus /> 
+                         
+                        Email
+                       <input type="email" form="rent" class="border-0 mb-5 formRent" name="mail" maxlength="50" placeholder="example@gmail.com"  autofocus />
+
+                        Дату аренды
+                        <input type="date" form="rent" class="form-control search-slt formRent" name="date" placeholder="Выберите дату" value="">
+
+                        Комментарий
+                        <textarea name="comment"  cols="45" rows="4" class="formRentText" form="rent" maxlength="500" ></textarea>
+
+                        
+                        <div class="modal-footer d-flex border-0 mb-4"> 
+                          <button type="button" class="btn cancel"  data-dismiss="modal">Отменить</button> 
+                          <button type="submite" class="btn create">Отправить</button> </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+                  <section>
+            <h2>Наши автобусы:</h2>
+
+            <div class="row justify-content-around galleryBus">
+                <div class="col-12 col-md-4">
+                  <div >
+                    <img src="img/mercedesSprinter.jpg" alt="Счастливый">
+                  </div>
+                  Mercedes Sprint 21 место 
+                  <br>
+                  
+                </div>
+                 <div class="col-12 col-md-4">
+                  <div >
+                    <img src="img/isuzubogdan.jpg" alt="В данный момент">
+                  </div>
+                  Isuzu Богда 27 мест
+                  <br>
+                </div>
+                <div class="col-12 col-md-4 ">
+                  <div >
+                    <img src="img/yutong zk6100hb.jpg" alt="Грустный">
+                  </div>
+                  Youtong ZK6100HB 42 места
+                  <br>
+                  </div>
+               
+              </div>
+              <div class="row justify-content-around galleryBus">
+                <div class="col-12 col-md-4">
+                  <div >
+                    <img src="img/neoplan116.jpg" alt="Счастливый">
+                  </div>
+                  Neoplan 116 57 мест
+                  <br>
+                </div>
+                 <div class="col-12 col-md-4">
+                  <div >
+                    <img src="img/yutongzk6200hb.jpg" alt="В данный момент">
+                  </div>
+                  Youtong ZK6200HB 42 места
+                  <br>
+                </div>
+                <div class="col-12 col-md-4 ">
+                  <div >
+                    <img src="img/neoplan208.jpg" alt="Грустный">
+                  </div>
+                  Neoplan 208 31 место
+                  <br>
+                  </div>
+               
+              </div>
+          </section>
+          <hr>
+
+            <section>
+              
+          <div class="aboutUs">
+            <h3>В каких ситуациях может потребоваться наша услуга?</h3>
+            <ul>
+              <b>Междугородние автобусные перевозки сопрягаются с различными целями:</b>
+            <li>аренда автобуса для экскурсии;</li>
+            <li>аренда автобуса на деловые визиты;</li>
+            <li>семинары, тренинги, олимпиады;</li>
+            <li>выездные корпоративы;</li>
+            <li>любые торжества или ритуальные процессии;</li>
+            <li>аренда автобуса на спортивные соревнования и многое другое.</li>
+            </ul>
+            
+</div>
+            </section>
+            <hr>
+
+
+    </main>
+    <hr>
+    <footer class="section footer-classic context-dark bg-image" style="background: #151414;">
+        <div class="container">
+          <div class="row row-30">
+            <div class="col-md-4 col-xl-5">
+              <div class="pr-xl-4"><a class="brand" href="index.html"><img class="brand-logo-light" src="images/agency/logo-inverse-140x37.png" alt="" width="140" height="37" srcset="images/agency/logo-retina-inverse-280x74.png 2x"></a>
+                <p>Наша компания «ForeyBus» оказывает услуги по пассажирским перевозкам уже долгие годы, обладает положительными отзывами. Основные принципы работы – качество, безопасность, надежность и добросовестная работа.</p>
+                <p class="rights"><span>©  </span><span class="copyright-year">2020</span><span> </span><span></span><span>All Rights Reserved.</span></p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <h5>Контакты</h5>
+              <dl class="contact-list">
+                <dt>Адрес:</dt>
+                <dd>Харьков, ул.Черниговская 5</dd>
+              </dl>
+              <dl class="contact-list">
+                <dt>email:</dt>
+                <dd><a href="mailto:#">foreybus@gmail.com</a></dd>
+              </dl>
+              <dl class="contact-list">
+                <dt>Телефоны:</dt>
+                <dd><a href="tel:#">066-63-423-23</a> <span>;</span> <a href="tel:#">050-23-234-23</a>
+                </dd>
+              </dl>
+            </div>
+            <div class="col-md-4 col-xl-3">
+              <h5>Меню</h5>
+              <ul class="nav-list">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="news.php">Новости</a></li>
+                <li><a href="ticket.html">Билеты</a></li>
+                <li><a href="rent.html">Аренда</a></li>
+                <li><a href="aboutUs.html">О нас</a></li>
+                <li><a href="contact.html">Контакты</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </footer>
+    
+    <script src="js/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+
+        $(function(){
+
+            $('.orderTicket').click(function(){
+
+                $('input[name="sheet"]').val($(this).val());
+
+            });
+
+        });
+
+        function validate(evt) {
+  var theEvent = evt || window.event;
+  var key = theEvent.keyCode || theEvent.which;
+  key = String.fromCharCode( key );
+  var regex = /[0-9]|\./;
+  if( !regex.test(key) ) {
+    theEvent.returnValue = false;
+    if(theEvent.preventDefault) theEvent.preventDefault();
+  }
+}
+
+    </script>
+
+  </body>
+  
+
+</html>

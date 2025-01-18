@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/new.css">
+    <title>MyWebSite</title>
+    <script>
+      function showTicket(link) { 
+    var data1="?destination="+document.getElementById('destination1').value+"&";
+    var data2="date="+document.getElementById('date').value;
+    //alert(date1);
+        var cont = document.getElementById('showTicket');    
+        var http = createRequestObject();  
+        if( http )   
+        {  
+            http.open('get', link+data1+data2);  
+            http.onreadystatechange = function ()   
+            {  
+                if(http.readyState == 4)   
+                {  
+                    cont.innerHTML = http.responseText;  
+                }  
+            }  
+            http.send(null);      
+        }  
+        else   
+        {  
+            document.location = link;  
+        }  
+    } 
+  
+    // создание ajax объекта  
+    function createRequestObject()   
+    {  
+        try { return new XMLHttpRequest() }  
+        catch(e)   
+        {  
+            try { return new ActiveXObject('Msxml2.XMLHTTP') }  
+            catch(e)   
+            {  
+                try { return new ActiveXObject('Microsoft.XMLHTTP') }  
+                catch(e) { return null; }  
+            }  
+        }  
+    } 
+    function sendkey(key){
+      var k=key;
+      document.getElementById('sheetid').value=key;
+    }
+    
+
+    </script>
+    
+  </head>
+  <body class="bg-light">
+      <header class="header">
+    <nav class="navbar navbar-expand-lg  navbar-dark" style="background-color: #151414" id="nav" >
+      <div class="container-fluid">
+        <a href="index.html" class="navbar-brand logo"><img src="img/logo2.png" width="20%" height="20%">ForeyBus</a>
+        <button class="navbar-toggler"  type="button" data-toggle="collapse" data-target="#navMenu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMenu">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item ">
+              <a href="index.html" class="nav-link ">Главная</a>
+            </li>
+            <li class="nav-item">
+              <a href="news.php" class="nav-link">Новости</a>
+            </li>
+            <li class="nav-item active">
+              <a href="ticket.html" class="nav-link">Билеты</a>
+            </li>
+            <li class="nav-item">
+              <a href="rent.html" class="nav-link">Аренда</a>
+            </li>
+            <li class="nav-item">
+              <a href="aboutUs.html" class="nav-link">О нас</a>
+            </li>
+            <li class="nav-item ">
+              <a href="contact.html" class="nav-link">Контакты</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+    <main class="main container-fluid" id="main">
+      <div class="rent">
+        <hr>
+        <h1>Пассажирские перевозки по Украине</h1>
+        <hr>
+      </div>
+    
+                  <section class="search-sec bg-light " id="ticket">
+                <div class="container ">
+                    <form id="ticketInfo" action="ticketInfo.php" onsubmit="javascript:showTicket('ticketInfo.php'); return false;" method="POST">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="row d-flex justify-content-center">
+                                  <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+                                        <select name="city" class="form-control search-slt" id="destination1">
+                                            <option value="">Выберите город</option>
+                                            <option value="Киев">Киев</option>
+                                            <option value="Одесса">Одесса</option>
+                                            <option value="Сумы">Сумы</option>
+                                            <option value="Днепр">Днепр</option>
+                                            <option value="Полтава">Полтава</option>
+                                            <option value="Запорожье">Запорожье</option>
+                                            <option value="Николаев">Николаев</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+                                        <input type="date" class="form-control search-slt" id="date" name="date" placeholder="Выберите дату" value="">
+                                    </div>
+                                    
+                                    <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+                                        <button type="submite" form="ticketInfo" class="btn btn-dark wrn-btn" style="background-color: #151414">Поиск</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                
+            
+            </section>
+            <div id="showTicket"></div>
+            <hr>
+            <section>
+              <div class="rentText">"ForeyBus" предлагает пассажирские перевозки в Харькове и по Украине на удобных и комфортабельных автобусах и микроавтобусах. У нашей фирмы отличная репутация, большой опыт работы, личный автопарк с исправным транспортом. Мы стараемся постоянно следить за ресурсами, обновляя технику, каждый водитель перед выходом в рейс проходит медицинский осмотр.
+              <hr>
+              Наша компание осуществляет рейсы в такие города как:
+              <ul>
+                <li>Киев</li>
+                <li>Одесса</li>
+                <li>Сумы</li>
+                <li>Днепр</li>
+                <li>Полтава</li>
+                <li>Запорожье</li>
+                <li>Николаев</li>
+              </ul>
+              </div>
+            </section>
+            <div class="d-flex justify-content-center">  </div>
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header border-0 mb-2">
+                            <h5 class="modal-title" id="exampleModalLabel" style="color:#151414;">БРОНИРОВАНИЕ МЕСТА</h5>
+                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"> 
+                              <span aria-hidden="true">&times;</span>
+                               </button>
+                        </div>
+                        <form id="orderTicketForm" action="orderTicket.php" method="post" style="color:black;">
+                        Ф.И.О
+                        <input type="text" form="orderTicketForm" class="border-0 mb-5" name="name" maxlength="50" placeholder="Олегов Олег Олегович" style="width:100%;height:40px;background-color:#151414;border-radius: 4px;padding-left: 16px;color:white;" autofocus />
+
+                        Номер телефона
+                       <input type="text" onkeypress='validate(event)' form="orderTicketForm" name="phoneNum" id="phoneNum" maxlength="9" class="border-0 mb-5" placeholder="455455645" style="width:100%;height:40px;background-color:#151414;border-radius: 4px;padding-left: 16px;color:white;" autofocus /> 
+
+                        <input type="hidden" id="sheetid"  name="sheet" form="orderTicketForm" value=''/>
+
+                        
+                        <div class="modal-footer d-flex border-0 mb-4"> 
+                          <button type="button" class="btn cancel"  data-dismiss="modal">Отменить</button> 
+                          <button type="submite" class="btn create">Отправить</button> </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+    </main>
+    <footer class="section footer-classic context-dark bg-image" style="background: #151414;">
+        <div class="container">
+          <div class="row row-30">
+            <div class="col-md-4 col-xl-5">
+              <div class="pr-xl-4"><a class="brand" href="index.html"><img class="brand-logo-light" src="images/agency/logo-inverse-140x37.png" alt="" width="140" height="37" srcset="images/agency/logo-retina-inverse-280x74.png 2x"></a>
+                <p>Наша компания «ForeyBus» оказывает услуги по пассажирским перевозкам уже долгие годы, обладает положительными отзывами. Основные принципы работы – качество, безопасность, надежность и добросовестная работа.</p>
+                <p class="rights"><span>©  </span><span class="copyright-year">2020</span><span> </span><span></span><span>All Rights Reserved.</span></p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <h5>Контакты</h5>
+              <dl class="contact-list">
+                <dt>Адрес:</dt>
+                <dd>Харьков, ул.Черниговская 5</dd>
+              </dl>
+              <dl class="contact-list">
+                <dt>email:</dt>
+                <dd><a href="mailto:#">foreybus@gmail.com</a></dd>
+              </dl>
+              <dl class="contact-list">
+                <dt>Телефоны:</dt>
+                <dd><a href="tel:#">066-63-423-23</a> <span>;</span> <a href="tel:#">050-23-234-23</a>
+                </dd>
+              </dl>
+            </div>
+            <div class="col-md-4 col-xl-3">
+              <h5>Меню</h5>
+              <ul class="nav-list">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="news.php">Новости</a></li>
+                <li><a href="ticket.html">Билеты</a></li>
+                <li><a href="rent.html">Аренда</a></li>
+                <li><a href="aboutUs.html">О нас</a></li>
+                <li><a href="contact.html">Контакты</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </footer>
+    
+    <script src="js/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/fun.js"></script>
+    <script>
+      
+        
+
+        function validate(evt) {
+  var theEvent = evt || window.event;
+  var key = theEvent.keyCode || theEvent.which;
+  key = String.fromCharCode( key );
+  var regex = /[0-9]|\./;
+  if( !regex.test(key) ) {
+    theEvent.returnValue = false;
+    if(theEvent.preventDefault) theEvent.preventDefault();
+  }
+}
+
+    </script>
+
+  </body>
+  
+
+</html>

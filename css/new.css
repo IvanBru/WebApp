@@ -1,0 +1,408 @@
+*{
+	padding: 0;
+	margin: 0;
+	font:"Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+}
+.logo{
+	text-decoration: none;
+	color: black;
+	font-size: 2em;
+	font-weight: bold;
+}
+a:hover{
+	text-decoration: none;
+	color: black;
+}
+a{
+	text-decoration: none;
+	color: black;
+}
+.dark a{
+	text-decoration: none;
+	color:white;
+
+}
+
+.dark a:link{
+	text-decoration: none;
+	color:white;
+}
+.dark a:visited{
+	text-decoration: none;
+	color:white;
+}
+a:visited{
+	text-decoration: none;
+	color:black;
+}
+.navbar-nav li{
+	padding-right: 25px;
+	font-size: 1.2em;
+}
+.table-subject{
+	width: 80%;
+	margin: 0 auto;
+}
+.article{
+	text-align: center
+}
+.section h2{
+
+}
+.section{
+	
+}
+.films{
+	font-size: 1.5em;
+	font-weight: bold;
+	width: 60%;
+}
+.films img{
+	padding:0;
+	width: 70px;
+	height: 100px;
+
+	
+}
+
+.galleryBus{
+	padding-top: 1em;
+	text-align: center;
+	font-size: 1.5em;
+	margin: 1em;
+}
+.galleryBus img{
+
+	width: calc(100%/1.2);
+	height: calc(100%/1.2);
+	border: solid gray;
+}
+.galleryBus img:hover{
+	
+	transform: scale(1.05);
+}
+.container-fluid{
+
+}
+
+hr{
+	margin-top: 2%;
+	margin-bottom: 2%;
+}
+
+
+.dark-theme{
+	background: #000;
+}
+
+.footer{
+	text-align: center;
+	margin: 0 auto;
+	height: 150px;
+	width: 100%;
+	padding-top: 60px;
+	font-size: 2em;
+	background:#e9ecef  ;
+}
+.footer a{
+	margin: 50px;
+}
+
+.header_fixed{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    animation: showElement;
+    animation-duration: 1s;
+    background: #2352dc;
+    z-index:1;
+}
+
+.myPhoto{
+	justify-content: center;
+	align-content: center;
+	text-align: center;
+}
+.myPhoto img{
+		height: 60%;
+		width: 60%;
+		border: solid black;
+}
+
+@keyframes showElement{
+    0% {
+        opacity: 0;
+        top: -70px;
+    }
+    
+    100% {
+        opacity: 1;
+        top: 0;
+    }
+}
+
+@media (max-width: 768px){
+	.films{
+		width: 100%;
+		font-size: 0.8em;
+	}
+	.list-group img{
+
+	}
+	.section{
+		text-align: center;
+	}
+	.mood{
+		font-size: 1em;
+	}
+	.carousel{
+	width: 100%;
+	}
+	.myPhoto{
+	justify-content: flex-start;
+	align-content: flex-start;
+	text-align: none;
+	}
+	.myPhoto img{
+		height: 100%;
+		width: 100%;
+	}
+}
+
+.search-sec{
+    padding: 2rem;
+
+}
+.search-slt{
+    display: block;
+    width: 100%;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: #55595c;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    height: calc(3rem + 2px) !important;
+    border-radius:0;
+}
+.wrn-btn{
+    width: 100%;
+    font-size: 16px;
+    font-weight: 400;
+    text-transform: capitalize;
+    height: calc(3rem + 2px) !important;
+    border-radius:0;
+    background-color: #151414
+}
+@media (min-width: 992px){
+    .search-sec{
+        position: relative;
+        
+    }
+
+}
+
+@media (max-width: 992px){
+    .search-sec{
+    }
+
+}
+
+body{
+}
+
+
+ .container {
+     margin-top: 100px
+ }
+
+ .modal-open .modal {
+     overflow-x: hidden;
+     overflow-y: auto;
+     background-size: cover
+ }
+
+ .modal-content {
+ 	text-align: center;
+ 	font-size: 1.2em;
+ 	color:white;
+     background-color: #ccc;
+     padding: 13px
+ }
+
+
+
+ .set {
+     width: 100%;
+     height: 67px;
+     border-radius: 4px;
+     background: #ccc;
+     padding-top: 16px;
+     padding-left: 16px;
+     margin-bottom: 10px
+ }
+
+
+ .small,
+ small {
+     font-size: 80%;
+     font-weight: 400;
+     position: relative;
+     bottom: 8px
+ }
+
+ .txt {
+     position: relative;
+     bottom: 4px;
+     left: 2px
+ }
+
+ .cancel {
+     background: #151414  ;
+     color: white;
+     width: 40%
+ }
+
+ .btn.focus,
+ .btn:focus {
+     outline: 0;
+     box-shadow: none !important
+ }
+
+ .close.focus,
+ .close:focus {
+     outline: 0;
+     box-shadow: none !important
+ }
+
+ .create {
+     background: #151414 ;
+     color: white;
+     width: 40%
+ }
+
+ .close {
+     color: white;
+     font-weight: 100
+ }
+
+ .modal-footer {
+     justify-content: space-between
+ }
+
+ .rent{
+ 	justify-content: center;
+ 	text-align: center;
+ 	align-items: center;
+ }
+.buttonOrder{
+	width: width: 60%;
+	min-width: 200px;
+	min-height: 50px;
+
+}
+.formRent{
+	width:100%;
+	height:40px;
+	background-color:#151414;
+	border-radius: 4px;
+	padding-left: 16px;
+	color:white;
+}
+.formRentText{
+
+	background-color:#151414;
+	border-radius: 4px;
+	padding-left: 16px;
+	color:white;
+}
+.rentText{
+	font-size: 1.1em;
+	padding-right: 2em;
+	padding-left: 2em;
+}
+
+.aboutUs{
+	font-size: 1.1em;
+	padding-right: 3em;
+	padding-left: 3em; 
+}
+.aboutUs ol{
+	padding-right: 3em;
+	padding-left: 3em; 
+}
+.contact{
+	font-style: sans-serif;
+	color: white;
+
+}
+.contactForm {
+	justify-content: center;
+ 	text-align: center;
+ 	align-items: center;
+	width: 40%;
+ 	text-align: center;
+ 	font-size: 1.2em;
+ 	color:white;
+     background-color: #ccc;
+     padding: 13px
+ }
+
+ .context-dark, .bg-gray-dark, .bg-primary {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.footer-classic a, .footer-classic a:focus, .footer-classic a:active {
+    color: #ffffff;
+}
+.nav-list li {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.nav-list li a:hover:before {
+    margin-left: 0;
+    
+    visibility: visible;
+}
+
+
+
+.social-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 23px;
+    font: 900 13px/1 "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.5);
+}
+.social-container .col {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.nav-list li a:before {
+    content: "\f14f";
+    font: 400 21px/1 "Material Design Icons";
+    color: #4d6de6;
+    display: inline-block;
+    vertical-align: baseline;
+    margin-left: -28px;
+    margin-right: 7px;
+    opacity: 0;
+    visibility: hidden;
+    transition: .22s ease;
+}
+.main{
+	padding-left: 3em;
+	padding-right: 3em;
+}
+.carousel{
+	padding-left: 0;
+	padding-right: 0;
+}
+.newstext{
+	font-size: 1.3em;
+}
