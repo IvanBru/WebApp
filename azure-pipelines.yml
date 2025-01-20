@@ -13,5 +13,5 @@ steps:
     sshEndpoint: 'EC2Connection'  # Подключение к EC2
     sourceFolder: '$(System.DefaultWorkingDirectory)'  # Путь к файлам
     contents: '**/*'  # Все файлы проекта
-    targetFolder: '/home/ubuntu/WebApp/'  # Папка на сервере
+    targetFolder: '/home/ubuntu/WebAppTest/'  # Папка на сервере
     cleanTargetFolder: true  # Очистить перед копированием
