@@ -2,6 +2,7 @@
 
 ## Overview
 This project demonstrates my **DevOps skills** by migrating an existing PHP website with a MySQL database to the AWS cloud. The challenge included setting up cloud infrastructure, deploying the application, implementing CD pipeline, and connecting monitoring.
+## [LINK TO THE WEBSITE](http://ec2-63-35-10-112.eu-west-1.compute.amazonaws.com/)
 
 ## Objectives
 - **Migrate** a PHP website with a database to AWS.
@@ -43,6 +44,8 @@ This project demonstrates my **DevOps skills** by migrating an existing PHP webs
 ### 3. Server Configuration
 - Installed and configured **Nginx** on the EC2 instance to serve the PHP application.
 - Connected the application to the MySQL database hosted on RDS.
+![image](https://github.com/user-attachments/assets/3e549281-4edc-4c0c-894c-cd8c51ae1b8c)
+
 
 ### 4. Version Control
 - Uploaded the project to a **GitHub** repository to track changes and facilitate deployment.
