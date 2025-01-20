@@ -6,12 +6,38 @@ trigger:
 pool:
   name: Default
 
-steps:
+variables:
+  - group: db_info
 
+
+steps:
+# Шаг 1: Полностью очищаем директорию на сервере
+- task: SSH@0
+  inputs:
+    sshEndpoint: 'EC2Connection'
+    script: |
+      echo "Очистка директории /home/ubuntu/WebAppTest/"
+      rm -rf /home/ubuntu/WebAppTest/*
+      echo "Директория очищена."
+
+# Шаг 2: Копируем файлы на сервер
 - task: CopyFilesOverSSH@0
   inputs:
-    sshEndpoint: 'EC2Connection'  # Подключение к EC2
-    sourceFolder: '$(System.DefaultWorkingDirectory)'  # Путь к файлам
-    contents: '**/*'  # Все файлы проекта
-    targetFolder: '/home/ubuntu/WebAppTest/'  # Папка на сервере
-    cleanTargetFolder: true  # Очистить перед копированием
+    sshEndpoint: 'EC2Connection'
+    sourceFolder: '$(System.DefaultWorkingDirectory)'
+    contents: '**/*'
+    targetFolder: '/home/ubuntu/WebAppTest/'
+
+# Шаг 3: Создаём/перезаписываем .env файл на сервере
+- task: SSH@0
+  inputs:
+    sshEndpoint: 'EC2Connection'
+    script: |
+      echo "Создаём .env файл"
+      cat > /home/ubuntu/WebAppTest/.env <<EOL
+      DB_HOST=$(DB_HOST)
+      DB_NAME=$(DB_NAME)
+      DB_PORT=$(DB_PORT)
+      DB_USER=$(DB_USER)
+      DB_PASSWORD=$(DB_PASSWORD)
+      EOL
