@@ -18,15 +18,16 @@ steps:
     runOptions: 'script'
     script: |
       echo "Проверка директории /home/ubuntu/WebAppTest/"
-      if [ -d "/home/ubuntu/WebAppTest/" ]; then
-        echo "Удаляем файлы..."
-        sudo rm -rf /home/ubuntu/WebAppTest/* || exit 1
-        echo "Файлы удалены. Текущие содержимое:"
-        ls -la /home/ubuntu/WebAppTest/
-      else
-        echo "Директория отсутствует. Создаём её."
-        mkdir -p /home/ubuntu/WebAppTest || exit 1
-      fi
+      # echo "Проверка директории /home/ubuntu/WebAppTest/"
+      # if [ -d "/home/ubuntu/WebAppTest/" ]; then
+      #   echo "Удаляем файлы..."
+      #   sudo rm -rf /home/ubuntu/WebAppTest/* || exit 1
+      #   echo "Файлы удалены. Текущие содержимое:"
+      #   ls -la /home/ubuntu/WebAppTest/
+      # else
+      #   echo "Директория отсутствует. Создаём её."
+      #   mkdir -p /home/ubuntu/WebAppTest || exit 1
+      # fi
 
 # Шаг 2: Копируем файлы на сервер
 - task: CopyFilesOverSSH@0
