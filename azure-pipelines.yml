@@ -15,7 +15,7 @@ steps:
 - task: SSH@0
   inputs:
     sshEndpoint: 'EC2Connection'
-    runOptions: 'script'
+    runOptions: 'inline'
     script: |
       echo "Проверка директории /home/ubuntu/WebAppTest/"
 #      echo "Проверка директории /home/ubuntu/WebAppTest/"
