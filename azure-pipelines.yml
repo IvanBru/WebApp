@@ -17,7 +17,7 @@ steps:
     sshEndpoint: 'EC2Connection'
     runOptions: 'inline'
     inline: |
-      echo "Проверка директории /home/ubuntu/WebAppTest/"
+      echo "Проверка директории /home/ubuntu/WebAppTest/ "
       echo "Проверка директории /home/ubuntu/WebAppTest/"
       if [ -d "/home/ubuntu/WebAppTest/" ]; then
         echo "Удаляем файлы..."
