@@ -1,0 +1,53 @@
+trigger:
+  branches:
+    include:
+      - main
+
+pool:
+  name: Default
+
+variables:
+  - group: db_info
+
+
+steps:
+# Шаг 1: Полностью очищаем директорию на сервере
+- task: SSH@0
+  inputs:
+    sshEndpoint: 'EC2Connection'
+    runOptions: 'inline'
+    inline: |
+      echo "Проверка директории /home/ubuntu/WebAppTest/ "
+      echo "Проверка директории /home/ubuntu/WebAppTest/"
+      if [ -d "/home/ubuntu/WebAppTest/" ]; then
+        echo "Удаляем файлы..."
+        sudo rm -rf /home/ubuntu/WebAppTest/* || exit 1
+        echo "Файлы удалены. Текущие содержимое:"
+        ls -la /home/ubuntu/WebAppTest/
+      else
+        echo "Директория отсутствует. Создаём её."
+        mkdir -p /home/ubuntu/WebAppTest || exit 1
+      fi
+
+# Шаг 2: Копируем файлы на сервер
+- task: CopyFilesOverSSH@0
+  inputs:
+    sshEndpoint: 'EC2Connection'
+    sourceFolder: '$(System.DefaultWorkingDirectory)'
+    contents: '**/*'
+    targetFolder: '/home/ubuntu/WebAppTest/'
+
+# Шаг 3: Создаём/перезаписываем .env файл на сервере
+- task: SSH@0
+  inputs:
+    sshEndpoint: 'EC2Connection'
+    runOptions: 'inline'
+    inline: |
+      echo "Создаём .env файл"
+      cat > /home/ubuntu/WebAppTest/.env <<EOL
+      DB_HOST=$(DB_HOST)
+      DB_NAME=$(DB_NAME)
+      DB_PORT=$(DB_PORT)
+      DB_USER=$(DB_USER)
+      DB_PASSWORD=$(DB_PASSWORD)
+      EOL
