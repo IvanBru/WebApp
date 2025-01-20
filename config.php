@@ -1,17 +1,56 @@
 <?php
-//Адрес сервера MySQL
-$dblocation="localhost";
-$dbname="car_company";
-$dbuser="root";
-$dbpasswd="";
-$link=mysqli_connect($dblocation, $dbuser, $dbpasswd);
-if(!$link) {
-exit("<p>В настоящий момент сервер базы данных недоступен, поэтому корректное отображение страницы невозможно.</p>");
-}
-else
-if(!mysqli_select_db($link,$dbname))
+// Функция для загрузки переменных из .env файла
+function loadEnv($filePath)
 {
-exit("<p>В настоящий момент база данных недоступна, поэтому корректное отображение страницы невозможно.</p>");
+    if (!file_exists($filePath)) {
+        exit("<p>Файл .env не найден!</p>");
+    }
+
+    $lines = file($filePath, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+    foreach ($lines as $line) {
+        // Пропускаем строки с комментариями
+        if (strpos(trim($line), '#') === 0) {
+            continue;
+        }
+
+        // Разбиваем строку на ключ и значение
+        [$key, $value] = explode('=', $line, 2);
+        $key = trim($key);
+        $value = trim($value);
+
+        // Убираем кавычки, если они есть
+        $value = trim($value, '"\'');
+        
+        // Сохраняем переменные в $_ENV
+        $_ENV[$key] = $value;
+    }
 }
-mysqli_query($link,"set names 'utf8'");
-?> 
+
+// Загружаем .env файл
+loadEnv(__DIR__ . '/.env');
+
+// Чтение переменных из $_ENV
+$dblocation = $_ENV['DB_HOST'];
+$dbname = $_ENV['DB_NAME'];
+$dbuser = $_ENV['DB_USER'];
+$dbpasswd = $_ENV['DB_PASSWORD'];
+$dbport = $_ENV['DB_PORT'];
+
+// Подключение к серверу MySQL
+$link = mysqli_connect($dblocation, $dbuser, $dbpasswd, $dbname, $dbport);
+
+// Проверка подключения
+if (!$link) {
+    exit("<p>Не удалось подключиться к серверу базы данных. Ошибка: " . mysqli_connect_error() . "</p>");
+}
+
+// Установка кодировки
+mysqli_set_charset($link, "utf8");
+
+// Проверка успешного подключения к базе данных
+if (!mysqli_select_db($link, $dbname)) {
+    exit("<p>Не удалось подключиться к базе данных. Ошибка: " . mysqli_error($link) . "</p>");
+}
+
+// Дальнейшая работа с базой данных...
+?>
