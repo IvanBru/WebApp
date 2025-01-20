@@ -16,9 +16,16 @@ steps:
   inputs:
     sshEndpoint: 'EC2Connection'
     script: |
-      echo "Очистка директории /home/ubuntu/WebAppTest/"
-      sudo rm -rf /home/ubuntu/WebAppTest/*
-      echo "Директория очищена."
+      echo "Проверка директории /home/ubuntu/WebAppTest/"
+      if [ -d "/home/ubuntu/WebAppTest/" ]; then
+        echo "Удаляем файлы..."
+        sudo rm -rf /home/ubuntu/WebAppTest/* || exit 1
+        echo "Файлы удалены. Текущие содержимое:"
+        ls -la /home/ubuntu/WebAppTest/
+      else
+        echo "Директория отсутствует. Создаём её."
+        mkdir -p /home/ubuntu/WebAppTest || exit 1
+      fi
 
 # Шаг 2: Копируем файлы на сервер
 - task: CopyFilesOverSSH@0
