@@ -29,25 +29,25 @@ steps:
         mkdir -p /home/ubuntu/WebAppTest || exit 1
       fi
 
-# # Шаг 2: Копируем файлы на сервер
-# - task: CopyFilesOverSSH@0
-#   inputs:
-#     sshEndpoint: 'EC2Connection'
-#     sourceFolder: '$(System.DefaultWorkingDirectory)'
-#     contents: '**/*'
-#     targetFolder: '/home/ubuntu/WebAppTest/'
+# Шаг 2: Копируем файлы на сервер
+- task: CopyFilesOverSSH@0
+  inputs:
+    sshEndpoint: 'EC2Connection'
+    sourceFolder: '$(System.DefaultWorkingDirectory)'
+    contents: '**/*'
+    targetFolder: '/home/ubuntu/WebAppTest/'
 
-# # Шаг 3: Создаём/перезаписываем .env файл на сервере
-# - task: SSH@0
-#   inputs:
-#     sshEndpoint: 'EC2Connection'
-#     runOptions: 'script'
-#     script: |
-#       echo "Создаём .env файл"
-#       cat > /home/ubuntu/WebAppTest/.env <<EOL
-#       DB_HOST=$(DB_HOST)
-#       DB_NAME=$(DB_NAME)
-#       DB_PORT=$(DB_PORT)
-#       DB_USER=$(DB_USER)
-#       DB_PASSWORD=$(DB_PASSWORD)
-#       EOL
+# Шаг 3: Создаём/перезаписываем .env файл на сервере
+- task: SSH@0
+  inputs:
+    sshEndpoint: 'EC2Connection'
+    runOptions: 'inline'
+    inline: |
+      echo "Создаём .env файл"
+      cat > /home/ubuntu/WebAppTest/.env <<EOL
+      DB_HOST=$(DB_HOST)
+      DB_NAME=$(DB_NAME)
+      DB_PORT=$(DB_PORT)
+      DB_USER=$(DB_USER)
+      DB_PASSWORD=$(DB_PASSWORD)
+      EOL
