@@ -15,6 +15,7 @@ steps:
 - task: SSH@0
   inputs:
     sshEndpoint: 'EC2Connection'
+    runOptions: 'script'
     script: |
       echo "Проверка директории /home/ubuntu/WebAppTest/"
       if [ -d "/home/ubuntu/WebAppTest/" ]; then
@@ -39,6 +40,7 @@ steps:
 - task: SSH@0
   inputs:
     sshEndpoint: 'EC2Connection'
+    runOptions: 'script'
     script: |
       echo "Создаём .env файл"
       cat > /home/ubuntu/WebAppTest/.env <<EOL
