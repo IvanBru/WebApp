@@ -17,7 +17,7 @@ steps:
     sshEndpoint: 'EC2Connection'
     script: |
       echo "Очистка директории /home/ubuntu/WebAppTest/"
-      rm -rf /home/ubuntu/WebAppTest/*
+      sudo rm -rf /home/ubuntu/WebAppTest/*
       echo "Директория очищена."
 
 # Шаг 2: Копируем файлы на сервер
